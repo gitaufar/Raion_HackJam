@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "426544777834",
+    "project_id": "hackjam-9af85",
+    "storage_bucket": "hackjam-9af85.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:426544777834:android:3851fdf6c7c685631fd813",
+        "android_client_info": {
+          "package_name": "com.example.hackjam"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5h24zzhmEx-XT65spi9BsR1UPzgnWQbQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="violet_1">#f0e9f1</color>
+    <color name="violet_2">#dbc9dd</color>
+    <color name="violet_3">#bf9fc2</color>
+    <color name="violet_4">#a173a5</color>
+    <color name="violet_5">#85488a</color>
+    <color name="violet_6">#6a2070</color>
+    <color name="violet_7">#5a1b5f</color>
+    <color name="violet_8">#4b1750</color>
+    <color name="violet_9">#3c1240</color>
+    <color name="violet_10">#300e32</color>
+</resources>

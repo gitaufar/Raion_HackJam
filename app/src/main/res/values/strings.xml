@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Hackjam</string>
+    <string name="login">Log In</string>
+    <string name="login_text">Silahkan log in untuk melanjutkan</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="ingat">Ingat saya</string>
+    <string name="lupa">Forgot Password?</string>
+    <string name="masuk">Masuk</string>
+    <string name="daftar">Daftar</string>
+    <string name="masuk_dengan">atau masuk dengan</string>
+    <string name="belum_punya">belum punya akun?</string>
+    <string name="sudah_punya">sudah punya akun?</string>
+    <string name="sign_in">Sign in</string>
+    <string name="login_kecil">Log in</string>
+    <string name="sign_besar">Sign In</string>
+    <string name="sign_text">Silahkan sign in untuk membuat akun</string>
+    <string name="email">Email</string>
+    <string name="confirm_pass">Konfirmasi Password</string>
+    <string name="selamat_datang">Selamat Datang\ndi SafeSpeak :D</string>
+    <string name="lorem">lorem ipsum</string>
+    <string name="swipe">Geser ke atas untuk melanjutkan</string>
+</resources>
