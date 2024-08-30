@@ -3,12 +3,83 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DiagnosisFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".DiagnosisFragment"
+    android:background="@color/white">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/bg_diagnosis_tengah_kiri"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:src="@drawable/bg_diagnosis_atas_kanan"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bg_diagnosis_bawah_kanan"
+        android:layout_gravity="end|bottom"/>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pjs_extra_bold"
+            android:text="@string/safe_check"
+            android:textColor="@color/violet_6"
+            android:textSize="20sp"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="83dp"/>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_diagnosis"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="32dp"/>
+        
+        <FrameLayout
+            android:layout_width="352dp"
+            android:layout_height="155dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="45dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/kenali"
+                android:textColor="@color/black"
+                android:fontFamily="@font/pjs_bold"
+                android:textSize="16sp"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/diagnosis_btn"
+                android:layout_width="352dp"
+                android:layout_height="40dp"
+                android:background="@drawable/btn_diagnosis_bg"
+                android:text="@string/cek_sekarang"
+                android:layout_gravity="center_horizontal|bottom"
+                android:textColor="@color/white"
+                android:fontFamily="@font/pjs_bold"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                android:layout_marginBottom="10dp"/>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+
 
 </FrameLayout>

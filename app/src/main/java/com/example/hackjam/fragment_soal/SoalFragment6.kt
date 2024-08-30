@@ -5,30 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.AppCompatButton
+import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
+import com.example.hackjam.QuestionActiviyViewModel
 import com.example.hackjam.R
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [SoalFragment6.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SoalFragment6 : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,23 +21,62 @@ class SoalFragment6 : Fragment() {
         return inflater.inflate(R.layout.fragment_soal6, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SoalFragment6.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SoalFragment6().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val viewModel = ViewModelProvider(requireActivity()).get(QuestionActiviyViewModel::class.java)
+        val button1: AppCompatButton = view.findViewById(R.id.tidak_pernah)
+        val button2: AppCompatButton = view.findViewById(R.id.jarang)
+        val button3: AppCompatButton = view.findViewById(R.id.pernah)
+
+        button1.setOnClickListener(){
+            viewModel.updateListAnswer(5,arrayOf(1,0,0))
+            button1.setBackgroundResource(R.drawable.answer_selected)
+            button1.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+            button2.setBackgroundResource(R.drawable.question__btn_bg)
+            button2.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+            button3.setBackgroundResource(R.drawable.question__btn_bg)
+            button3.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+        }
+
+        button2.setOnClickListener(){
+            viewModel.updateListAnswer(5,arrayOf(0,1,0))
+            button2.setBackgroundResource(R.drawable.answer_selected)
+            button2.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+            button1.setBackgroundResource(R.drawable.question__btn_bg)
+            button1.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+            button3.setBackgroundResource(R.drawable.question__btn_bg)
+            button3.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+        }
+
+        button3.setOnClickListener(){
+            viewModel.updateListAnswer(5,arrayOf(0,0,1))
+            button3.setBackgroundResource(R.drawable.answer_selected)
+            button3.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+            button2.setBackgroundResource(R.drawable.question__btn_bg)
+            button2.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+            button1.setBackgroundResource(R.drawable.question__btn_bg)
+            button1.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+        }
+
+        val listButton = arrayOf(button1,button2,button3)
+        viewModel.getAnswerAt(5).observe(viewLifecycleOwner) { answer ->
+            for (i in 0..2) {
+                update_button(answer[i], listButton[i])
             }
+        }
+
+    }
+
+    fun update_button(bool: Int,button: AppCompatButton){
+        if(bool == 0){
+            button.setBackgroundResource(R.drawable.question__btn_bg)
+            button.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+            return
+        }
+
+        button.setBackgroundResource(R.drawable.answer_selected)
+        button.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+
     }
 }

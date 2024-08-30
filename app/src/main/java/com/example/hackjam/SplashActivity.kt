@@ -3,6 +3,7 @@ package com.example.hackjam
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -29,7 +30,11 @@ class SplashActivity : AppCompatActivity() {
         val handler = Handler(Looper.getMainLooper())
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
+        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_FULLSCREEN
+                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
         CoroutineScope(Dispatchers.Main).launch {
             showIcon(binding.first)
             delay(400)
@@ -47,10 +52,12 @@ class SplashActivity : AppCompatActivity() {
             if(firebaseAuth.currentUser != null){
                 Intent(this,MainActivity::class.java).also{
                     startActivity(it)
+                    finish()
                 }
             } else {
                 Intent(this,OnboardActivity::class.java).also{
                     startActivity(it)
+                    finish()
                 }
             }
         },2400)

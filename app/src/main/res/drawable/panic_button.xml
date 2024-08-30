@@ -1,4 +1,39 @@
-<?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Lapisan Border Ungu Luar -->
+
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@android:color/transparent" /> <!-- Menggunakan warna transparan untuk latar belakang -->
+            <stroke
+                android:width="10dp"
+                android:color="@color/violet_5" />
+        </shape>
+    </item>
+
+    <!-- Lapisan Border Putih -->
+    <item
+        android:bottom="5dp"
+        android:left="5dp"
+        android:right="5dp"
+        android:top="5dp">
+        <shape android:shape="oval">
+            <solid android:color="@android:color/transparent" />
+            <stroke
+                android:width="10dp"
+                android:color="#FFFFFF" />
+        </shape>
+    </item>
+
+    <!-- Lapisan Lingkaran Ungu di Dalam -->
+    <item
+        android:bottom="10dp"
+        android:left="10dp"
+        android:right="10dp"
+        android:top="10dp">
+        <shape android:shape="oval">
+            <solid android:color="@color/violet_5" /> <!-- Warna ungu di dalam -->
+        </shape>
+    </item>
 
 </layer-list>

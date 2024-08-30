@@ -30,22 +30,22 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="11dp"
             android:layout_marginTop="24dp"
-            android:background="@color/violet_3"
+            android:background="@color/violet_1"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:background="@color/violet_3"
+                android:background="@color/violet_1"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/pjs_extra_bold"
-                    android:text="@string/sign_besar"
-                    android:textColor="@color/white"
+                    android:text="@string/daftar"
+                    android:textColor="@color/violet_8"
                     android:textSize="32sp" />
 
                 <TextView
@@ -186,6 +186,7 @@
                 </FrameLayout>
 
                 <androidx.appcompat.widget.AppCompatButton
+                    android:gravity="center"
                     android:id="@+id/masuk_btn"
                     android:layout_width="350dp"
                     android:layout_height="40dp"
@@ -193,7 +194,7 @@
                     android:background="@drawable/btn_bg_before"
                     android:fontFamily="@font/pjs_bold"
                     android:text="@string/daftar"
-                    android:textColor="@color/white"
+                    android:textColor="#6F6F6F"
                     android:textSize="16sp"
                     android:textAllCaps="false"/>
 
@@ -201,7 +202,7 @@
                     android:layout_width="350dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:background="@color/violet_3">
+                    android:background="@color/violet_1">
 
                     <TextView
                         android:layout_width="wrap_content"

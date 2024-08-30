@@ -5,6 +5,188 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ResultActivity">
+    tools:context=".ResultActivity"
+    android:background="@color/white">
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/hasilDiagnosis"
+        android:layout_width="match_parent"
+        android:layout_height="464dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/resul_bg"
+        android:translationZ="1dp"
+        android:visibility="gone">
+        
+        <FrameLayout
+            android:id="@+id/container_text"
+            android:background="@drawable/result_text_bg"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_width="341dp"
+            android:layout_height="209dp">
+            
+            <LinearLayout
+                android:background="@color/white"
+                android:layout_width="321dp"
+                android:layout_height="189dp"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/name"
+                    android:fontFamily="@font/pjs_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:text="@string/halo_nama"/>
+
+                <TextView
+                    android:textColor="@color/black"
+                    android:id="@+id/textHasil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/pjs_medium"/>
+
+            </LinearLayout>
+
+        </FrameLayout>
+        
+        <FrameLayout
+            android:id="@+id/button_place"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/container_text"
+            app:layout_constraintBottom_toTopOf="@id/back_home"
+            android:layout_width="329dp"
+            android:layout_height="58dp"
+            android:layout_margin="17dp">
+            
+            <androidx.appcompat.widget.AppCompatButton
+                android:background="@drawable/konsultasi_bg"
+                android:id="@+id/konsultasiBtn"
+                android:layout_width="158dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/konsultasikan"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:fontFamily="@font/pjs_bold"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:background="@drawable/laporkan_bg"
+                android:textColor="@color/white"
+                android:text="@string/laporkan"
+                android:textAllCaps="false"
+                android:fontFamily="@font/pjs_bold"
+                android:id="@+id/laporBtn"
+                android:layout_width="158dp"
+                android:layout_height="48dp"
+                android:layout_gravity="end|center_vertical"/>
+
+        </FrameLayout>
+        
+        <FrameLayout
+            android:id="@+id/back_home"
+            app:layout_constraintTop_toBottomOf="@id/button_place"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_width="352dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dp">
+
+            <TextView
+                android:id="@+id/backHome"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/pjs_extra_bold"
+                android:text="@string/kembali2"
+                android:textColor="@color/violet_6"/>
+
+        </FrameLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/analisis_diagnosis"
+        android:fontFamily="@font/pjs_extra_bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="101dp"
+        android:layout_marginStart="25dp"
+        android:textSize="20sp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tunggu"
+        app:layout_constraintTop_toBottomOf="@id/flProgress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/pjs_medium"/>
+
+    <FrameLayout
+        android:id="@+id/flProgress"
+        android:layout_width="325dp"
+        android:layout_height="325dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:max="400"
+            android:id="@+id/bar"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            app:indicatorSize="300dp"
+            app:indicatorColor="#00FF00"
+            app:trackColor="#D9D9D0"
+            app:trackThickness="35dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/persentage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="50sp"
+                android:text="@string/persentage"
+                android:fontFamily="@font/pjs_extra_bold"
+                android:textColor="#00FF00"/>
+
+                <TextView
+                    android:id="@+id/persen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:paddingBottom="7dp"
+                    android:textSize="30sp"
+                    android:text="@string/persen"
+                    android:fontFamily="@font/pjs_extra_bold"
+                    android:textColor="#00FF00" />
+
+        </LinearLayout>
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

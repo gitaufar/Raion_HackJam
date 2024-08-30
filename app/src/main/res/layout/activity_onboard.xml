@@ -6,12 +6,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".OnboardActivity"
-    android:background="#FFFFFF">
+    android:background="@color/violet_1">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/idViewPager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/swipe"
+        android:gravity="center_vertical">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo_onboard"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textColor="@color/violet_6"
+            android:text="@string/safe_speak"
+            android:fontFamily="@font/pjs_bold"
+            android:layout_marginStart="7dp"/>
+    </LinearLayout>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/idViewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="500dp"
         android:layout_margin="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,7 +43,7 @@
 
     <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
         android:id="@+id/dotsIndicator"
-        app:dotsColor="#E9E6E6"
+        app:dotsColor="@color/white"
         app:selectedDotColor="#000000"
         app:dotsSize="6dp"
         android:layout_width="wrap_content"
@@ -35,18 +58,18 @@
         android:id="@+id/swipe"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-<!--        android:layout_marginBottom="148dp"-->
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/pjs_medium"
+        android:padding="10dp"
         android:text="@string/swipe"
         android:textColor="#6F6F6F"
         android:textSize="10sp"
-        app:layout_constraintBottom_toTopOf="@id/dotsIndicator"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:padding="10dp"
-        android:fontFamily="@font/pjs_medium"/>
+        app:layout_constraintTop_toBottomOf="@+id/dotsIndicator" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

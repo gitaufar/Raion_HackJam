@@ -3,12 +3,15 @@ package com.example.hackjam
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.example.hackjam.databinding.ActivityLoginBinding
 import com.example.hackjam.databinding.ActivityMainBinding
 import com.google.android.gms.tasks.OnCompleteListener
@@ -17,6 +20,10 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.database
 import com.google.firebase.database.getValue
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 
 class LoginActivity : AppCompatActivity() {
@@ -44,6 +51,9 @@ class LoginActivity : AppCompatActivity() {
             togglePasswordVisibility(binding.pass)
         }
 
+        binding.username.addTextChangedListener(textWatcher)
+        binding.pass.addTextChangedListener(textWatcher)
+
         binding.masukBtn.setOnClickListener(){
             var email: String = binding.username.text.toString()
             val pass: String = binding.pass.text.toString()
@@ -56,6 +66,8 @@ class LoginActivity : AppCompatActivity() {
                             email = it.getValue().toString()
                             auth.signInWithEmailAndPassword(email,pass).addOnCompleteListener(OnCompleteListener{
                                 if(it.isSuccessful){
+                                    val sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE)
+                                    sharedPreferences.edit().putString("UID", auth.currentUser?.uid!!).apply()
                                     if(!binding.swtc.isChecked){
                                         auth.signOut()
                                     }
@@ -89,8 +101,32 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "email and password cant be empty", Toast.LENGTH_SHORT).show()
             }
         }
-
         }
+
+    private val textWatcher = object : TextWatcher {
+        override fun beforeTextChanged(
+            s: CharSequence?,
+            start: Int,
+            count: Int,
+            after: Int
+        ) {
+        }
+
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+        override fun afterTextChanged(s: Editable?) {
+            // Ubah warna tombol berdasarkan teks yang diinputkan
+            val isInputNotEmpty = binding.username.text.toString()
+                .isNotEmpty() || binding.pass.text.toString().isNotEmpty()
+            if (isInputNotEmpty) {
+                binding.masukBtn.setBackgroundResource(R.drawable.btn_bg_after)
+                binding.masukBtn.setTextColor(ContextCompat.getColor(this@LoginActivity, R.color.white))
+            } else {
+                binding.masukBtn.setBackgroundResource(R.drawable.btn_bg_before)
+                binding.masukBtn.setTextColor(ContextCompat.getColor(this@LoginActivity, R.color.grey))
+            }
+        }
+    }
     private fun togglePasswordVisibility(editText: EditText) {
         val selectionStart = editText.selectionStart
         val selectionEnd = editText.selectionEnd

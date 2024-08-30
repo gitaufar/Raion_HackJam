@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item
+        android:id="@+id/bottom_home"
+        android:title="@string/home_item"
+        android:icon="@drawable/bottom_home"
+        android:background="@color/white"/>
+
+    <item
+        android:id="@+id/bottom_diagnosis"
+        android:title="@string/diagnosis_item"
+        android:icon="@drawable/bottom_diagnosis"
+        android:background="@color/white"/>
+
+    <item
+        android:title=""
+        android:id="@+id/bottom_profile"
+        android:background="@color/white"/>
+
+    <item
+        android:id="@+id/bottom_lapor"
+        android:title="@string/lapor_item"
+        android:icon="@drawable/botton_lapor"
+        android:background="@color/white"/>
+
+    <item
+        android:id="@+id/bottom_komunitas"
+        android:title="@string/komunitas_item"
+        android:icon="@drawable/bottom_komunitas"
+        android:background="@color/white"/>
+
 </menu>

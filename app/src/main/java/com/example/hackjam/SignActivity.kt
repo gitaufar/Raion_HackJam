@@ -2,6 +2,8 @@ package com.example.hackjam
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.view.View
@@ -9,6 +11,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.hackjam.databinding.ActivityLoginBinding
@@ -46,6 +49,11 @@ class SignActivity : AppCompatActivity() {
         binding.showPass2.setOnClickListener(){
             togglePasswordVisibility(binding.confirmPass)
         }
+
+        binding.username.addTextChangedListener(textWatcher)
+        binding.pass.addTextChangedListener(textWatcher)
+        binding.confirmPass.addTextChangedListener(textWatcher)
+        binding.email.addTextChangedListener(textWatcher)
 
         binding.masukBtn.setOnClickListener() {
             val email = binding.email.text.toString()
@@ -102,6 +110,31 @@ class SignActivity : AppCompatActivity() {
             }
         }
 
+    }
+
+    private val textWatcher = object : TextWatcher {
+        override fun beforeTextChanged(
+            s: CharSequence?,
+            start: Int,
+            count: Int,
+            after: Int
+        ) {
+        }
+
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+        override fun afterTextChanged(s: Editable?) {
+            // Ubah warna tombol berdasarkan teks yang diinputkan
+            val isInputNotEmpty = binding.username.text.toString()
+                .isNotEmpty() || binding.pass.text.toString().isNotEmpty()
+            if (isInputNotEmpty) {
+                binding.masukBtn.setBackgroundResource(R.drawable.btn_bg_after)
+                binding.masukBtn.setTextColor(ContextCompat.getColor(this@SignActivity, R.color.white))
+            } else {
+                binding.masukBtn.setBackgroundResource(R.drawable.btn_bg_before)
+                binding.masukBtn.setTextColor(ContextCompat.getColor(this@SignActivity, R.color.grey))
+            }
+        }
     }
 
     private fun togglePasswordVisibility(editText: EditText) {
